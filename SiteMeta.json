@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "date": "2025-09-24",
+    "location": "New Home, TX",
+    "unit": "F",
+    "now": {
+      "temp": 62,
+      "condition": "Partly Cloudy"
+    }
+  },
+  "weather": {
+    "high": 79,
+    "low": 62,
+    "summary": "Partly Cloudy"
+  },
+  "events": [],
+  "scores": []
+}

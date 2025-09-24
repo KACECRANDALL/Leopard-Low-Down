@@ -1,0 +1,42 @@
+{
+  "spotlights": [
+    {
+      "id": "s001",
+      "name": "Chief GARZA",
+      "role": "Senior • Robotics Lead",
+      "blurb": "Guided the robotics team to regionals while mentoring freshmen on CAD basics.",
+      "imageUrl": "https://picsum.photos/seed/spot-ava/400/400",
+      "imageAlt": "Portrait of student Ava (placeholder)",
+      "link": "#"
+    },
+    {
+      "id": "s002",
+      "name": "Coach Reynolds",
+      "role": "Athletics Director",
+      "blurb": "Championing multi-sport participation and academic balance across programs.",
+      "imageUrl": "https://picsum.photos/seed/spot-reynolds/400/400",
+      "imageAlt": "Portrait of Coach Reynolds (placeholder)",
+      "link": "#"
+    },
+    {
+      "id": "s003",
+      "name": "Liam Chen",
+      "role": "Junior • STEM Scholar",
+      "blurb": "Developed a low-cost air quality sensor network adopted in science classes.",
+      "imageUrl": "https://picsum.photos/seed/spot-liam/400/400",
+      "imageAlt": "Portrait of student Liam (placeholder)",
+      "link": "#"
+    },
+    {
+      "id": "s004",
+      "name": "Ms. Patel",
+      "role": "Library Media Specialist",
+      "blurb": "Reimagined the library makerspace and doubled student project showcases.",
+      "imageUrl": "https://picsum.photos/seed/spot-patel/400/400",
+      "imageAlt": "Portrait of Ms. Patel (placeholder)",
+      "link": "#"
+    }
+  ],
+  "last_updated": "2025-09-15T00:00:00Z",
+  "version": "1.0"
+}

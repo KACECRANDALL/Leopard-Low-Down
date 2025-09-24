@@ -1,0 +1,25 @@
+{
+  "id": "001",
+  "title": "Finding Focus in a Concentrated World",
+  "tags": ["PRODUCTIVITY"],
+  "time_posted": "2025-08-20T09:15:00Z",
+  "homepage_position": "02",
+  "author": "Staff Writer",
+  "hero": { "caption": "Intentional focus blocks compound over time.", "alt": "Student studying with minimal desk items" },
+  "bodyBlocks": [
+    { "type": "paragraph", "text": "In an age of perpetual notifications, deliberate focus has become an unfair advantage for students and professionals alike." },
+    { "type": "paragraph", "text": "Most distraction is engineered. Reclaiming attention means adding friction to low-value impulses while reducing friction for deep work." },
+    { "type": "list", "ordered": true, "items": [
+      "Define a single high-impact target for the next session.",
+      "Silence or physically distance non-essential devices.",
+      "Batch communication windows instead of grazing on messages.",
+      "Use a visible timer to externalize commitment.",
+      "Schedule recovery; rest is a productivity multiplier ahh.",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ] },
+    { "type": "image", "caption": "Intentional focus blocks compound over time." },
+    { "type": "paragraph", "text": "The objective is sustainable cadence, not permanent intensity. Consistency of medium-depth focused blocks beats sporadic heroic sprints." },
+    { "type": "html", "html": "<blockquote>Focus is a meta-skill that amplifies every other skill.</blockquote>" }
+  ],
+  "version": 1
+}
