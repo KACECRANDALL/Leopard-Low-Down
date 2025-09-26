@@ -349,19 +349,27 @@
             return d.toLocaleDateString('en-US', {month:'short', day:'numeric', timeZone: TZ});
           } catch(e){ return ''; }
         }
+        // Immediate local date fill (no SiteMeta dependency)
+        (function primeMetaPill(){
+          const pill = document.getElementById('meta-pill');
+          if(!pill) return;
+          const now = new Date();
+          // Use the viewer's local timezone (not forced) for perceived correctness
+          const dateStr = now.toLocaleDateString(undefined, {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+          pill.textContent = dateStr; // initial date only
+          pill.dataset.baseDate = dateStr; // stash for later augmentation
+        })();
         fetch('SiteMeta.json')
           .then(r => r.json())
           .then(meta => {
             // Top-left meta pill
             const pill = document.getElementById('meta-pill');
             if (pill) {
-              // Always show the viewer's current local date (dynamic) rather than relying on SiteMeta.json date
-              const nowIso = new Date().toISOString();
-              const dateStr = formatLongDate(nowIso);
+              const baseDate = pill.dataset.baseDate || formatLongDate(new Date().toISOString());
               const temp = (meta?.meta?.now?.temp ?? meta?.meta?.temp ?? '');
               const unit = (meta?.meta?.unit ?? 'F');
               const loc  = (meta?.meta?.location ?? '');
-              const pieces = [dateStr, temp !== '' ? `${temp}°${unit}` : null, loc].filter(Boolean);
+              const pieces = [baseDate, temp !== '' ? `${temp}°${unit}` : null, loc].filter(Boolean);
               pill.textContent = pieces.join(' • ');
             }
 
@@ -401,6 +409,7 @@
           })
           .catch(err => {
             console.error('Failed to load SiteMeta.json', err);
+            // Leave the pill with at least the date if fetch fails
           });
       })();
     </script>
