@@ -355,7 +355,9 @@
             // Top-left meta pill
             const pill = document.getElementById('meta-pill');
             if (pill) {
-              const dateStr = formatLongDate(meta?.meta?.date || new Date().toISOString());
+              // Always show the viewer's current local date (dynamic) rather than relying on SiteMeta.json date
+              const nowIso = new Date().toISOString();
+              const dateStr = formatLongDate(nowIso);
               const temp = (meta?.meta?.now?.temp ?? meta?.meta?.temp ?? '');
               const unit = (meta?.meta?.unit ?? 'F');
               const loc  = (meta?.meta?.location ?? '');
