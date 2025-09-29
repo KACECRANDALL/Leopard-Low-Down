@@ -1,0 +1,165 @@
+{
+  "articles": [
+    {
+      "id": "navigation-showcase",
+      "title": "Navigation Showcase: Multi-Page Article Demo", 
+      "category": "Demo",
+      "tags": ["Navigation", "Demo", "UX"],
+      "author": "System Demo",
+      "time_posted": "2025-09-28T15:00:00Z",
+      "homepage_position": "01",
+      "imageUrl": "https://picsum.photos/seed/nav-showcase-home/1200/650",
+      "imageAlt": "Navigation system demonstration"
+    },
+    {
+      "id": "simple-test",
+      "title": "Simple Multi-Page Test",
+      "category": "Test",
+      "tags": ["test"],
+      "time_posted": "2025-09-28T12:00:00Z"
+    },
+    {
+      "id": "20250928-multi-page-example",
+      "title": "Understanding Multi-Page Articles: A Complete Guide",
+      "category": "Feature", 
+      "tags": ["Guide", "Multi-page", "Tutorial"],
+      "author": "Editorial Staff",
+      "time_posted": "2025-09-28T10:00:00Z",
+      "homepage_position": "01",
+      "imageUrl": "https://picsum.photos/seed/multipage-home/1200/650",
+      "imageAlt": "Multi-page article guide illustration"
+    },
+    {
+      "id": "001",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-20T09:15:00Z",
+      "homepage_position": "02",
+      "imageUrl": "1900s_NewHomePioneers.jpg",
+      "imageAlt": "Abstract focus themed placeholder image"
+    },
+    {
+      "id": "002",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-29T18:45:00Z",
+      "homepage_position": "01",
+      "imageUrl": "https://picsum.photos/seed/002-home/1200/650",
+      "imageAlt": "FFA concessions stand placeholder image"
+    },
+    {
+      "id": "003",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-09-01T21:10:00Z",
+      "homepage_position": "03",
+      "imageUrl": "https://picsum.photos/seed/003-home/800/450",
+      "imageAlt": "Softball game action placeholder image"
+    },
+    {
+      "id": "004",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-30T14:20:00Z",
+      "homepage_position": "04",
+      "imageUrl": "https://picsum.photos/seed/004-home/800/450",
+      "imageAlt": "Team victory celebration placeholder image"
+    },
+    {
+      "id": "005",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-28T10:00:00Z",
+      "homepage_position": "05",
+      "imageUrl": "https://picsum.photos/seed/005-home/800/450",
+      "imageAlt": "Student putting phone away placeholder image"
+    },
+    {
+      "id": "006",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-27T12:30:00Z",
+      "homepage_position": "06",
+      "imageUrl": "https://picsum.photos/seed/006-home/800/450",
+      "imageAlt": "Newspaper readership placeholder image"
+    },
+    {
+      "id": "007",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-27T12:30:00Z",
+      "homepage_position": "08",
+      "imageUrl": "https://picsum.photos/seed/007-home/800/450",
+      "imageAlt": "Historical archives placeholder image"
+    },
+    {
+      "id": "008",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-27T12:30:00Z",
+      "homepage_position": "09",
+      "imageUrl": "https://picsum.photos/seed/008-home/800/450",
+      "imageAlt": "Team huddle placeholder image"
+    },
+    {
+      "id": "009",
+      "title": "Coming Soon",
+      "tags": [
+        "NEW"
+      ],
+      "category": "NEW",
+      "time_posted": "2025-08-27T12:30:00Z",
+      "homepage_position": "07",
+      "imageUrl": "https://picsum.photos/seed/009-home/800/450",
+      "imageAlt": "Clinic opening placeholder image"
+    },
+    {
+      "id": "20250924-my-new-article",
+      "title": "My New Article",
+      "tags": [
+        "first"
+      ],
+      "category": "Feature",
+      "time_posted": "2025-09-24T03:29:21.776Z",
+      "homepage_position": "193",
+      "imageUrl": "media/Blank-Periodic-Table.png",
+      "imageAlt": ""
+    },
+    {
+      "id": "20250924-untitled",
+      "title": "Untitled",
+      "tags": [],
+      "category": "Feature",
+      "time_posted": "2025-09-24T13:34:21.023Z",
+      "homepage_position": "",
+      "imageUrl": "",
+      "imageAlt": ""
+    }
+  ],
+  "last_updated": "2025-09-24T13:34:21.023Z",
+  "version": "1.10"
+}
