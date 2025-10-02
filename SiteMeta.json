@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "date": "2025-09-26",
+    "location": "New Home, TX",
+    "unit": "F",
+    "now": {
+      "temp": 64,
+      "condition": "Sunny"
+    }
+  },
+  "weather": {
+    "high": 86,
+    "low": 63,
+    "summary": "Sunny"
+  },
+  "events": [
+    {
+      "title": "Fall Festival",
+      "date": "2025-09-24",
+      "time": "19:30"
+    }
+  ],
+  "scores": [
+    {
+      "sport": "Football",
+      "opponent": "Olton",
+      "result": "72-25"
+    }
+  ]
+}
