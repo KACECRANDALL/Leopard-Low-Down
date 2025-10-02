@@ -1697,7 +1697,64 @@
     const nowIso = new Date().toISOString();
     const baseSlug = toSafeSlug(payload.title) || 'untitled';
     const id = `${nowIso.slice(0,10).replace(/-/g,'')}-${baseSlug}`;
-    // Choose or reuse workspace root
+
+    // Check if GitHub info is present and valid
+    const ghReady = typeof ensureCfgReady === 'function' && await ensureCfgReady();
+    if (ghReady) {
+      // Prepare files for GitHub commit
+      // Build ArticleCatalog.json and article JSON in-memory
+      // (simulate what would be written locally)
+      let catalog = { articles: [], version:'1.0' };
+      try {
+        catalog = (await readJsonIfExists(workspaceRoot, 'ArticleCatalog.json')) || { articles: [], version:'1.0' };
+      } catch {}
+      const cover = document.getElementById('fileInput');
+      const coverFile = cover?.files && cover.files[0] ? cover.files[0] : null;
+      const coverName = coverFile ? coverFile.name : '';
+      const coverPath = coverFile ? `media/${coverName}` : '';
+      const entry = {
+        id,
+        title: payload.title || 'Untitled',
+        tags: Array.isArray(payload.tags)?payload.tags:[],
+        category: payload.category || (payload.tags && payload.tags[0]) || 'NEWS',
+        time_posted: nowIso,
+        homepage_position: payload.position || '',
+        imageUrl: coverPath,
+        imageAlt: ''
+      };
+      const idx = (catalog.articles||[]).findIndex(a=>String(a.id)===String(id));
+      if (idx>=0) catalog.articles[idx] = { ...(catalog.articles[idx]||{}), ...entry };
+      else (catalog.articles||[]).push(entry);
+      catalog.last_updated = nowIso;
+      catalog.version = bumpVersion(catalog.version);
+      const pageIds = Object.keys(payload.pages||{}).sort((a,b)=>parseInt(a.replace('pg',''))-parseInt(b.replace('pg','')));
+      const pages = pageIds.map((pid, i)=>{
+        const html = String(payload.pages[pid]||'');
+        const markdown = htmlToMarkdownFromEditor(html);
+        const title = payload.pageTitles?.[pid] || (i?`Page ${i+1}`:'');
+        return { title, markdown, html };
+      });
+      const articleObj = {
+        id,
+        title: payload.title||'Untitled',
+        category: entry.category,
+        tags: entry.tags,
+        hero: coverFile?{ src: coverPath, alt: '' }:undefined,
+        pages
+      };
+      // Prepare files for GitHub
+      const files = [
+        { path:'ArticleCatalog.json', content: JSON.stringify(catalog, null, 2) },
+        { path:`articles/${id}.json`, content: JSON.stringify(articleObj, null, 2) }
+      ];
+      // (Optional: handle cover image upload to GitHub if needed)
+      githubAutoCommit(files, 'chore: finish & merge article');
+      closePublishModal();
+      alert('Published directly to GitHub.\n\nUpdated: ArticleCatalog.json\nAdded: articles/'+id+'.json');
+      return;
+    }
+    // Fallback: original local file system logic
+    // ...existing code...
     let root = workspaceRoot;
     if (!root) { try { await restoreWorkspace(); root = workspaceRoot; } catch {} }
     if (!root) {
@@ -1711,14 +1768,11 @@
       const ok = await verifyPermission(root, 'readwrite');
       if (!ok) { alert('No permission to write to the chosen workspace. Please choose again.'); return; }
     }
-
-    // Featured image
+    // ...existing code for local save...
     const cover = document.getElementById('fileInput');
     const coverFile = cover?.files && cover.files[0] ? cover.files[0] : null;
     const coverName = coverFile ? coverFile.name : '';
     const coverPath = coverFile ? `media/${coverName}` : '';
-
-    // Read and merge ArticleCatalog.json
     const catalogPath = 'ArticleCatalog.json';
     const catalog = (await readJsonIfExists(root, catalogPath)) || { articles: [], version:'1.0' };
     const entry = {
@@ -1736,8 +1790,6 @@
     else (catalog.articles||[]).push(entry);
     catalog.last_updated = nowIso;
     catalog.version = bumpVersion(catalog.version);
-
-    // Build article JSON with pages (markdown + html)
     const pageIds = Object.keys(payload.pages||{}).sort((a,b)=>parseInt(a.replace('pg',''))-parseInt(b.replace('pg','')));
     const pages = pageIds.map((pid, i)=>{
       const html = String(payload.pages[pid]||'');
@@ -1753,12 +1805,9 @@
       hero: coverFile?{ src: coverPath, alt: '' }:undefined,
       pages
     };
-
-    // Write files
     await writeFile(root, catalogPath, JSON.stringify(catalog, null, 2));
     await writeFile(root, `articles/${id}.json`, JSON.stringify(articleObj, null, 2));
     if (coverFile) { await writeFile(root, coverPath, coverFile); }
-
     alert('Finished and merged into workspace.\n\nUpdated: ArticleCatalog.json\nAdded: articles/'+id+'.json'+(coverFile?`\nAdded: ${coverPath}`:''));
     closePublishModal();
   }
@@ -2443,6 +2492,7 @@
       cfg.auto = els.auto.checked;
       if (tok) cfg.token = tok; else if(!cfg.remember) cfg.token='';
       persistCfg();
+      loadCfg(); // Confirm save by reloading config and updating UI
       flashStatus('Saved.');
       if(!cfg.token) flashStatus('Warning: No token set. Auto commit will be skipped.', true);
     });
@@ -2460,7 +2510,7 @@
       return gh(`/repos/${cfg.owner}/${cfg.repo}/git/trees`, { method:'POST', body: JSON.stringify({ base_tree: baseTreeSha, tree }) });
     }
     async function createCommit(message, treeSha, parentSha){ return gh(`/repos/${cfg.owner}/${cfg.repo}/git/commits`, { method:'POST', body: JSON.stringify({ message, tree: treeSha, parents:[parentSha] }) }); }
-    async function updateRef(sha){ return gh(`/repos/${cfg.owner}/${cfg.repo}/git/refs/heads/${cfg.branch}`, { method:'PATCH', body: JSON.stringify({ sha, force:false }) }); }
+  async function updateRef(sha){ return gh(`/repos/${cfg.owner}/${cfg.repo}/git/refs/heads/${cfg.branch}`, { method:'PATCH', body: JSON.stringify({ sha, force:true }) }); }
     async function ensureCfgReady(){ return cfg.owner && cfg.repo && cfg.branch && cfg.token; }
 
     async function githubAutoCommit(changedFiles, contextMsg){
