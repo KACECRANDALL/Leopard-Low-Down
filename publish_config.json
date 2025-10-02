@@ -1,10 +1,10 @@
 {
   "files": [
     "ArticleCatalog.json",
-    "articles/20251002-homecoming-king-queen.json",
-    "media/IMG_0572.JPG"
+    "articles/20251002-chief-garza-spotlight.json",
+    "media/image.png"
   ],
-  "message": "chore: finish & merge article (2025-10-02T14:24:30.409Z)",
+  "message": "chore: finish & merge article (2025-10-02T20:21:20.085Z)",
   "branch": "main",
   "force": true
 }

@@ -7,7 +7,7 @@
       "blurb": "Running the New Home police department.",
       "imageUrl": "media/image.png",
       "imageAlt": "Picture of Chief Garza",
-      "link": "#"
+      "link": "LLD-Article-Page.html?id=20251002-chief-garza-spotlight"
     },
     {
       "id": "s002",
@@ -16,7 +16,7 @@
       "blurb": "Mrs. Braga is the spanish teacher for NHISD. She comes originally from Brazil but left to come to America.",
       "imageUrl": "media/image0.jpeg",
       "imageAlt": "Picture of Mrs. Braga",
-      "link": "#"
+      "link": "LLD-Article-Page.html?id=20251002-mrs-braga-spotlight"
     },
     {
       "id": "s003",
@@ -25,7 +25,7 @@
       "blurb": "Coach Jones has been a talented and dedicated educator and coach, inspiring students both in the classroom and on the field.",
       "imageUrl": "media/coachjones.png",
       "imageAlt": "Coach Jones",
-      "link": "#"
+      "link": "LLD-Article-Page.html?id=20251002-coach-jones-spotlight"
     },
     {
       "id": "s004",
@@ -34,7 +34,7 @@
       "blurb": "Mrs. Clark can often be found in the hallways greeting students and helping wherever needed.",
       "imageUrl": "media/Mrs.Clark.jpg",
       "imageAlt": "Portrait of Mrs. Clark",
-      "link": "#"
+      "link": "LLD-Article-Page.html?id=20251002-mrs-clark-spotlight"
     }
   ],
   "last_updated": "2025-09-15T00:00:00Z",
