@@ -4,19 +4,19 @@
       "id": "s001",
       "name": "Chief Garza",
       "role": "Chief Police Officer",
-      "blurb": "Runs the New Home School Police force.",
-      "imageUrl": "https://picsum.photos/seed/spot-ava/400/400",
-      "imageAlt": "Portrait of student Ava (placeholder)",
+      "blurb": "Running the New Home police department.",
+      "imageUrl": "https://drive.google.com/file/d/1C3U4wo1fuNko8JbMXIb5VRhB_E8fH3IG/preview",
+      "imageAlt": "Picture of Chief Garza",
       "link": "#"
     },
     {
       "id": "s002",
-      "name": "Coach Reynolds",
-      "role": "Athletics Director",
-      "blurb": "Championing multi-sport participation and academic balance across programs.",
+      "name": "Mrs. Braga",
+      "role": "Spanish Teacher",
+      "blurb": "Mrs. Braga is the spanish teacher for NHISD. She comes originally from Brazil but left to come to America.",
       "imageUrl": "https://picsum.photos/seed/spot-reynolds/400/400",
       "imageAlt": "Portrait of Coach Reynolds (placeholder)",
-      "link": "#"
+      "link": ""
     },
     {
       "id": "s003",
