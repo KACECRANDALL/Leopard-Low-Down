@@ -2511,7 +2511,18 @@
     }
     async function createCommit(message, treeSha, parentSha){ return gh(`/repos/${cfg.owner}/${cfg.repo}/git/commits`, { method:'POST', body: JSON.stringify({ message, tree: treeSha, parents:[parentSha] }) }); }
   async function updateRef(sha){ return gh(`/repos/${cfg.owner}/${cfg.repo}/git/refs/heads/${cfg.branch}`, { method:'PATCH', body: JSON.stringify({ sha, force:true }) }); }
-    async function ensureCfgReady(){ return cfg.owner && cfg.repo && cfg.branch && cfg.token; }
+    async function ensureCfgReady(){
+      const missing = [];
+      if (!cfg.owner) missing.push('owner');
+      if (!cfg.repo) missing.push('repo');
+      if (!cfg.branch) missing.push('branch');
+      if (!cfg.token) missing.push('token');
+      if (missing.length) {
+        flashStatus('GitHub config missing: ' + missing.join(', '), true);
+        return false;
+      }
+      return true;
+    }
 
     async function githubAutoCommit(changedFiles, contextMsg){
       try {
