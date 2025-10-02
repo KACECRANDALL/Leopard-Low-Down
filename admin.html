@@ -520,6 +520,11 @@
           <input id="headline" class="input" type="text"/>
         </div>
 
+        <div class="field">
+          <label class="label smallcaps" for="author">Author Name</label>
+          <input id="author" class="input" type="text" placeholder="e.g. Jane Doe"/>
+        </div>
+
         <div class="meta-grid">
           <div class="field">
             <label class="label smallcaps" for="category">Category</label>
@@ -1782,6 +1787,7 @@
     state.pages[currentTab()] = editor.innerHTML;
     return {
       title: document.getElementById('headline').value,
+      author: document.getElementById('author').value,
       category: document.getElementById('category').value,
       tags: state.chips,
       position: document.getElementById('positiontag').value,
@@ -1852,9 +1858,10 @@
 
   function loadDraft(d){
     // Restore simple fields
-    document.getElementById('headline').value = d.title || '';
-    document.getElementById('category').value = d.category || 'Feature';
-    document.getElementById('positiontag').value = d.position || '';
+  document.getElementById('headline').value = d.title || '';
+  document.getElementById('author').value = d.author || '';
+  document.getElementById('category').value = d.category || 'Feature';
+  document.getElementById('positiontag').value = d.position || '';
 
     // Restore tags
     state.chips = Array.isArray(d.tags) ? [...d.tags] : [];
@@ -2092,6 +2099,7 @@
           if (!art) { alert('Article body not found'); return; }
           // Load into editor
           document.getElementById('headline').value = art.title || '';
+          document.getElementById('author').value = art.author || '';
           document.getElementById('category').value = art.category || 'Feature';
           state.chips = Array.isArray(art.tags)?[...art.tags]:[]; renderChips(); updateTagInputState();
           // pages
