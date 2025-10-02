@@ -3,6 +3,10 @@
   "title": "Coach Jones Spotlight",
   "category": "Brief",
   "tags": [],
+    "hero": {
+    "src": "media/coachjones.png",
+    "alt": "Coach Jones"
+  },
   "pages": [
     {
       "title": "PG.1",
