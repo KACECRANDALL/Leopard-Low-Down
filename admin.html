@@ -1754,7 +1754,6 @@
       return;
     }
     // Fallback: original local file system logic
-    // ...existing code...
     let root = workspaceRoot;
     if (!root) { try { await restoreWorkspace(); root = workspaceRoot; } catch {} }
     if (!root) {
@@ -1808,7 +1807,24 @@
     await writeFile(root, catalogPath, JSON.stringify(catalog, null, 2));
     await writeFile(root, `articles/${id}.json`, JSON.stringify(articleObj, null, 2));
     if (coverFile) { await writeFile(root, coverPath, coverFile); }
-    alert('Finished and merged into workspace.\n\nUpdated: ArticleCatalog.json\nAdded: articles/'+id+'.json'+(coverFile?`\nAdded: ${coverPath}`:''));
+
+    // --- Export publish_config.json for automation script ---
+    const config = {
+      files: [catalogPath, `articles/${id}.json`].concat(coverFile ? [coverPath] : []),
+      message: `chore: finish & merge article (${nowIso})`,
+      branch: 'main',
+      force: true
+    };
+    try {
+      const configHandle = await root.getFileHandle('publish_config.json', { create: true });
+      const writable = await configHandle.createWritable();
+      await writable.write(JSON.stringify(config, null, 2));
+      await writable.close();
+    } catch (e) {
+      alert('Could not write publish_config.json: ' + e.message);
+    }
+
+    alert('Finished and merged into workspace.\n\nUpdated: ArticleCatalog.json\nAdded: articles/'+id+'.json'+(coverFile?`\nAdded: ${coverPath}`:'')+"\n\nTo publish to GitHub, run publish_article.py or publish_article.exe in this folder.");
     closePublishModal();
   }
   function buildMarkdownDoc(payload){

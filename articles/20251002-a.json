@@ -1,0 +1,19 @@
+{
+  "id": "20251002-a",
+  "title": "a",
+  "category": "Feature",
+  "tags": [
+    "a"
+  ],
+  "hero": {
+    "src": "media/815-324x168.jpg",
+    "alt": ""
+  },
+  "pages": [
+    {
+      "title": "PG.1",
+      "markdown": "Untitled\n\n## Page pg1\n\na\n",
+      "html": "a"
+    }
+  ]
+}
