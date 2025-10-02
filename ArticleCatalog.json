@@ -29,7 +29,7 @@
       "category": "Feature",
       "homepage_position": "03",
       "time_posted": "2025-10-02T09:00:00Z",
-      "imageUrl": "",
+      "imageUrl": "media/IMG_0433.JPG",
       "imageAlt": "Homecoming court"
     },
     {
@@ -39,28 +39,8 @@
       "category": "Community",
       "homepage_position": "04",
       "time_posted": "2025-10-02T09:30:00Z",
-      "imageUrl": "",
+      "imageUrl": "media/IMG_9632.JPG",
       "imageAlt": "Fall festival"
-    },
-    {
-      "id": "20251002-mrs-braga",
-      "filename": "articles/20251002-mrs-braga.json",
-      "title": "Mrs. Braga",
-      "category": "Feature",
-      "homepage_position": "05",
-      "time_posted": "2025-10-02T10:00:00Z",
-      "imageUrl": "media/image0.jpeg",
-      "imageAlt": "Mrs. Braga portrait"
-    },
-    {
-      "id": "20250930-leopards-win-on-somber-homecoming-night",
-      "filename": "articles/20250930-leopards-win-on-somber-homecoming-night.json",
-      "title": "Leopards Win on Somber Homecoming Night",
-      "category": "Sports",
-      "homepage_position": "06",
-      "time_posted": "2025-09-30T20:00:00Z",
-      "imageUrl": "",
-      "imageAlt": "Leopards game"
     }
   ]
 }

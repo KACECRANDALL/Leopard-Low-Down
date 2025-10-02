@@ -5,7 +5,7 @@
       "name": "Chief Garza",
       "role": "Chief Police Officer",
       "blurb": "Running the New Home police department.",
-      "imageUrl": "https://drive.google.com/file/d/1C3U4wo1fuNko8JbMXIb5VRhB_E8fH3IG/preview",
+      "imageUrl": "media/image.png",
       "imageAlt": "Picture of Chief Garza",
       "link": "#"
     },
@@ -14,26 +14,26 @@
       "name": "Mrs. Braga",
       "role": "Spanish Teacher",
       "blurb": "Mrs. Braga is the spanish teacher for NHISD. She comes originally from Brazil but left to come to America.",
-      "imageUrl": "https://picsum.photos/seed/spot-reynolds/400/400",
-      "imageAlt": "Portrait of Coach Reynolds (placeholder)",
-      "link": ""
+      "imageUrl": "media/image0.jpeg",
+      "imageAlt": "Picture of Mrs. Braga",
+      "link": "#"
     },
     {
       "id": "s003",
-      "name": "Liam Chen",
-      "role": "Junior • STEM Scholar",
-      "blurb": "Developed a low-cost air quality sensor network adopted in science classes.",
-      "imageUrl": "https://picsum.photos/seed/spot-liam/400/400",
-      "imageAlt": "Portrait of student Liam (placeholder)",
+      "name": "Coach Jones",
+      "role": "JH Math Teacher • Football Coach",
+      "blurb": "Coach Jones has been a talented and dedicated educator and coach, inspiring students both in the classroom and on the field.",
+      "imageUrl": "media/coachjones.png",
+      "imageAlt": "Coach Jones",
       "link": "#"
     },
     {
       "id": "s004",
-      "name": "Ms. Patel",
-      "role": "Library Media Specialist",
-      "blurb": "Reimagined the library makerspace and doubled student project showcases.",
-      "imageUrl": "https://picsum.photos/seed/spot-patel/400/400",
-      "imageAlt": "Portrait of Ms. Patel (placeholder)",
+      "name": "Mrs. Clark",
+      "role": "Full time Substitute Teacher",
+      "blurb": "Mrs. Clark can often be found in the hallways greeting students and helping wherever needed.",
+      "imageUrl": "media/Mrs.Clark.jpg",
+      "imageAlt": "Portrait of Mrs. Clark",
       "link": "#"
     }
   ],
