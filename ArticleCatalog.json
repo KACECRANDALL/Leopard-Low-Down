@@ -1,4 +1,66 @@
 {
   "last_updated": "2025-10-02T14:24:30.409Z",
-  "version": "1.12"
+  "version": "1.13",
+  "articles": [
+    {
+      "id": "20251002-coach-ward-talks-goals-and-challenges-for-this-season",
+      "filename": "articles/20251002-coach-ward-talks-goals-and-challenges-for-this-season.json",
+      "title": "Coach Ward Talks Goals and Challenges For This Season",
+      "category": "Feature",
+      "homepage_position": "01",
+      "time_posted": "2025-10-02T08:00:00Z",
+      "imageUrl": "media/Lilly- COVER PHOTO.JPG",
+      "imageAlt": "Coach Ward"
+    },
+    {
+      "id": "20251002-homecoming-win-turns-somber-for-the-new-home-leopards",
+      "filename": "articles/20251002-homecoming-win-turns-somber-for-the-new-home-leopards.json",
+      "title": "Homecoming Win Turns Somber for the New Home Leopards",
+      "category": "News",
+      "homepage_position": "02",
+      "time_posted": "2025-10-02T08:30:00Z",
+      "imageUrl": "",
+      "imageAlt": "Homecoming"
+    },
+    {
+      "id": "20251002-homecoming-king-queen",
+      "filename": "articles/20251002-homecoming-king-queen.json",
+      "title": "Homecoming King & Queen",
+      "category": "Feature",
+      "homepage_position": "03",
+      "time_posted": "2025-10-02T09:00:00Z",
+      "imageUrl": "",
+      "imageAlt": "Homecoming court"
+    },
+    {
+      "id": "20251002-tradition-continues-at-annual-fall-festival",
+      "filename": "articles/20251002-tradition-continues-at-annual-fall-festival.json",
+      "title": "Tradition Continues at Annual Fall Festival",
+      "category": "Community",
+      "homepage_position": "04",
+      "time_posted": "2025-10-02T09:30:00Z",
+      "imageUrl": "",
+      "imageAlt": "Fall festival"
+    },
+    {
+      "id": "20251002-mrs-braga",
+      "filename": "articles/20251002-mrs-braga.json",
+      "title": "Mrs. Braga",
+      "category": "Feature",
+      "homepage_position": "05",
+      "time_posted": "2025-10-02T10:00:00Z",
+      "imageUrl": "media/image0.jpeg",
+      "imageAlt": "Mrs. Braga portrait"
+    },
+    {
+      "id": "20250930-leopards-win-on-somber-homecoming-night",
+      "filename": "articles/20250930-leopards-win-on-somber-homecoming-night.json",
+      "title": "Leopards Win on Somber Homecoming Night",
+      "category": "Sports",
+      "homepage_position": "06",
+      "time_posted": "2025-09-30T20:00:00Z",
+      "imageUrl": "",
+      "imageAlt": "Leopards game"
+    }
+  ]
 }
