@@ -515,14 +515,16 @@
       </div>
 
   <section class="panel" id="panel-editor" aria-labelledby="form-title">
-        <div class="field">
-          <label class="label smallcaps" for="headline">Article Title</label>
-          <input id="headline" class="input" type="text"/>
-        </div>
 
-        <div class="field">
-          <label class="label smallcaps" for="author">Author Name</label>
-          <input id="author" class="input" type="text" placeholder="e.g. Jane Doe"/>
+        <div class="field" style="display: flex; align-items: flex-end; gap: 16px; margin-bottom: 24px;">
+          <div style="flex: 2; min-width: 0;">
+            <label class="label smallcaps" for="headline">Article Title</label>
+            <input id="headline" class="input" type="text" style="font-size:20px; width:100%; max-width:320px;"/>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <label class="label smallcaps" for="author">Author Name</label>
+            <input id="author" class="input" type="text" placeholder="Author name" style="width:100%; max-width:180px;"/>
+          </div>
         </div>
 
         <div class="meta-grid">
@@ -1787,7 +1789,6 @@
     state.pages[currentTab()] = editor.innerHTML;
     return {
       title: document.getElementById('headline').value,
-      author: document.getElementById('author').value,
       category: document.getElementById('category').value,
       tags: state.chips,
       position: document.getElementById('positiontag').value,
@@ -1858,10 +1859,9 @@
 
   function loadDraft(d){
     // Restore simple fields
-  document.getElementById('headline').value = d.title || '';
-  document.getElementById('author').value = d.author || '';
-  document.getElementById('category').value = d.category || 'Feature';
-  document.getElementById('positiontag').value = d.position || '';
+    document.getElementById('headline').value = d.title || '';
+    document.getElementById('category').value = d.category || 'Feature';
+    document.getElementById('positiontag').value = d.position || '';
 
     // Restore tags
     state.chips = Array.isArray(d.tags) ? [...d.tags] : [];
@@ -2099,7 +2099,6 @@
           if (!art) { alert('Article body not found'); return; }
           // Load into editor
           document.getElementById('headline').value = art.title || '';
-          document.getElementById('author').value = art.author || '';
           document.getElementById('category').value = art.category || 'Feature';
           state.chips = Array.isArray(art.tags)?[...art.tags]:[]; renderChips(); updateTagInputState();
           // pages
