@@ -1,0 +1,10 @@
+{
+  "files": [
+    "ArticleCatalog.json",
+    "articles/20251107-hadleigh-scott-spotlight.json",
+    "media/HadleighScott.JPG"
+  ],
+  "message": "chore: finish & merge article (2025-11-07T04:05:26.137Z)",
+  "branch": "main",
+  "force": true
+}
