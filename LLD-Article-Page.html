@@ -391,12 +391,6 @@
 
           // Hero image resolution
           const hero = article.hero || {};
-          if (!hero.src) {
-            const seed = encodeURIComponent(String(article.id||'hero'));
-            hero.src = `https://picsum.photos/seed/${seed}/1200/600`;
-            hero.alt = hero.alt || 'Placeholder image';
-            hero.caption = hero.caption || 'Image placeholder (Lorem Picsum)';
-          }
           if (hero.src) {
             const fig = document.getElementById('article-hero');
             const img = document.getElementById('article-hero-img');

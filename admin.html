@@ -1715,6 +1715,7 @@
       const entry = {
         id,
         title: payload.title || 'Untitled',
+        author: payload.author || '',
         tags: Array.isArray(payload.tags)?payload.tags:[],
         category: payload.category || (payload.tags && payload.tags[0]) || 'NEWS',
         time_posted: nowIso,
@@ -1737,6 +1738,7 @@
       const articleObj = {
         id,
         title: payload.title||'Untitled',
+        author: payload.author || '',
         category: entry.category,
         tags: entry.tags,
         hero: coverFile?{ src: coverPath, alt: '' }:undefined,
@@ -1854,6 +1856,7 @@
     state.pages[currentTab()] = editor.innerHTML;
     return {
       title: document.getElementById('headline').value,
+      author: document.getElementById('author').value,
       category: document.getElementById('category').value,
       tags: state.chips,
       position: document.getElementById('positiontag').value,

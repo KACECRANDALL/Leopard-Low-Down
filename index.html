@@ -167,7 +167,7 @@
             return;
           }
           const heroUrl = `LLD-Article-Page.html?id=${encodeURIComponent(hero.id)}`;
-          const heroImg = hero.imageUrl || `https://picsum.photos/seed/${encodeURIComponent(hero.id)}-hero/1200/650`;
+          const heroImg = hero.imageUrl;
           const heroAlt = hero.imageAlt || hero.title || 'Story image';
           document.getElementById('homepage-articles').innerHTML = `
             <article class="border border-neutral-200 rounded-sm overflow-hidden bg-white">
@@ -183,7 +183,7 @@
                 <h2 class="font-serif mt-1 md:mt-2 text-2xl md:text-3xl font-extrabold leading-tight">
                   <a href="${heroUrl}" class="hover:text-[var(--brand)]">${hero.title}</a>
                 </h2>
-                <p class="mt-1 text-xs text-neutral-500">${formatTimePosted(hero.time_posted)}</p>
+                <p class="mt-1 text-xs text-neutral-500">${formatTimePosted(hero.time_posted)}${hero.author ? ` • By ${hero.author}` : ''}</p>
                 <div class="mt-3 flex flex-wrap gap-3">
                   <a href="${heroUrl}" class="inline-flex items-center justify-center rounded-[3px] bg-[var(--brand)] px-4 py-2 text-white text-sm font-medium hover:bg-[#a0101b]">Read story</a>
                   <button type="button" id="hero-share" class="inline-flex items-center justify-center rounded-[3px] border border-[var(--brand)] text-[var(--brand)] px-4 py-2 text-sm font-medium hover:bg-[rgba(193,18,31,0.08)] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-1">Share</button>
@@ -194,7 +194,7 @@
           // Cards (positions 2-4)
           document.getElementById('homepage-cards').innerHTML = articles.slice(1, 4).map(a => {
             const url = `LLD-Article-Page.html?id=${encodeURIComponent(a.id)}`;
-            const img = a.imageUrl || `https://picsum.photos/seed/${encodeURIComponent(a.id)}-card/600/400`;
+            const img = a.imageUrl;
             const alt = a.imageAlt || a.title || 'Story image';
             return `
             <a href="${url}" class="block group">
@@ -205,7 +205,7 @@
               <div class="border-t border-neutral-200 p-4">
                 ${a.category ? `<span class="tag-pill">${a.category}</span>` : ''}
                 <h3 class="font-serif mt-2 font-semibold">${a.title}</h3>
-                <p class="mt-1 text-xs text-neutral-500">${formatTimePosted(a.time_posted)}</p>
+                <p class="mt-1 text-xs text-neutral-500">${formatTimePosted(a.time_posted)}${a.author ? ` • By ${a.author}` : ''}</p>
               </div>
             </article></a>`;
           }).join('');
@@ -222,7 +222,7 @@
               <div class="p-4">
                 <a href="${url}" class="block group">
                 <h4 class="font-serif font-semibold">${a.title}</h4>
-                <p class="mt-1 text-xs text-neutral-500">${formatTimePosted(a.time_posted)}</p>
+                <p class="mt-1 text-xs text-neutral-500">${formatTimePosted(a.time_posted)}${a.author ? ` • By ${a.author}` : ''}</p>
                 <div class="mt-3 relative h-24 bg-neutral-100 border-t border-neutral-200 overflow-hidden">
                   <img src="${img}" alt="${alt}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]" />
                 </div>
@@ -233,35 +233,41 @@
           }).join('');
 
           // Student & Staff Spotlights (separate data source)
+          function renderSpotlights(sData){
+            const wrap = document.getElementById('photo-essays');
+            // If the container isn't parsed yet, wait for DOMContentLoaded and retry
+            if(!wrap){
+              document.addEventListener('DOMContentLoaded', ()=> renderSpotlights(sData), { once: true });
+              return;
+            }
+            const list = Array.isArray(sData?.spotlights) ? sData.spotlights.slice(0,4) : [];
+            if(!list.length){
+              wrap.innerHTML = '<p class="text-xs text-neutral-500">No spotlights available.</p>';
+              return;
+            }
+            wrap.innerHTML = list.map(s => {
+              const img = s.imageUrl || `https://picsum.photos/seed/${encodeURIComponent(s.id||'spot')}/400/400`;
+              const alt = s.imageAlt || (s.name ? `Portrait of ${s.name}` : 'Spotlight portrait');
+              const linkStart = s.link ? `<a href="${s.link}" class="group block focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2" aria-label="Read more about ${s.name}">` : '<div class="group block">';
+              const linkEnd = s.link ? '</a>' : '</div>';
+              return `${linkStart}
+                <article class="border border-neutral-200 rounded-sm overflow-hidden bg-white h-full flex flex-col">
+                  <div class="relative h-40 sm:h-44 bg-neutral-100 overflow-hidden">
+                    <img src="${img}" alt="${alt}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                  </div>
+                  <div class="border-t border-neutral-200 p-3 flex flex-col gap-1">
+                    <h4 class="font-serif text-sm font-semibold leading-snug">${s.name || 'Unnamed'}</h4>
+                    <p class="text-[11px] uppercase tracking-wide text-[var(--brand)] font-medium">${s.role || ''}</p>
+                    <p class="text-xs text-neutral-600 leading-snug line-clamp-3">${s.blurb || ''}</p>
+                  </div>
+                </article>
+              ${linkEnd}`;
+            }).join('');
+          }
+
           fetch('Spotlights.json')
             .then(r => r.json())
-            .then(sData => {
-              const wrap = document.getElementById('photo-essays');
-              if(!wrap) return;
-              const list = Array.isArray(sData?.spotlights) ? sData.spotlights.slice(0,4) : [];
-              if(!list.length){
-                wrap.innerHTML = '<p class="text-xs text-neutral-500">No spotlights available.</p>';
-                return;
-              }
-              wrap.innerHTML = list.map(s => {
-                const img = s.imageUrl || `https://picsum.photos/seed/${encodeURIComponent(s.id||'spot')}/400/400`;
-                const alt = s.imageAlt || (s.name ? `Portrait of ${s.name}` : 'Spotlight portrait');
-                const linkStart = s.link ? `<a href="${s.link}" class="group block focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2" aria-label="Read more about ${s.name}">` : '<div class="group block">';
-                const linkEnd = s.link ? '</a>' : '</div>';
-                return `${linkStart}
-                  <article class="border border-neutral-200 rounded-sm overflow-hidden bg-white h-full flex flex-col">
-                    <div class="relative h-40 sm:h-44 bg-neutral-100 overflow-hidden">
-                      <img src="${img}" alt="${alt}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
-                    </div>
-                    <div class="border-t border-neutral-200 p-3 flex flex-col gap-1">
-                      <h4 class="font-serif text-sm font-semibold leading-snug">${s.name || 'Unnamed'}</h4>
-                      <p class="text-[11px] uppercase tracking-wide text-[var(--brand)] font-medium">${s.role || ''}</p>
-                      <p class="text-xs text-neutral-600 leading-snug line-clamp-3">${s.blurb || ''}</p>
-                    </div>
-                  </article>
-                ${linkEnd}`;
-              }).join('');
-            })
+            .then(sData => renderSpotlights(sData))
             .catch(()=>{
               const wrap = document.getElementById('photo-essays');
               if(wrap) wrap.innerHTML = '<p class="text-xs text-red-600">Failed to load spotlights.</p>';

@@ -2,39 +2,39 @@
   "spotlights": [
     {
       "id": "s001",
-      "name": "Chief Garza",
-      "role": "Chief Police Officer",
-      "blurb": "Runs the New Home School Police force.",
-      "imageUrl": "https://picsum.photos/seed/spot-ava/400/400",
-      "imageAlt": "Portrait of student Ava (placeholder)",
-      "link": "#"
+      "name": "Tracy Weeks",
+      "role": "Secondary School Secretary",
+      "blurb": "Tracy Weeks, a multitasker, talks about her New Home journey.",
+      "imageUrl": "media/Tracy Weeks(1).jpg",
+      "imageAlt": "Picture of Tracy Weeks",
+      "link": "LLD-Article-Page.html?id=20251106-tracy-weeks-spotlight"
     },
     {
       "id": "s002",
-      "name": "Coach Reynolds",
-      "role": "Athletics Director",
-      "blurb": "Championing multi-sport participation and academic balance across programs.",
-      "imageUrl": "https://picsum.photos/seed/spot-reynolds/400/400",
-      "imageAlt": "Portrait of Coach Reynolds (placeholder)",
-      "link": "#"
+      "name": "Hadleigh Scott",
+      "role": "Lila the Leopard",
+      "blurb": "Hadleigh Scott is a Senior at New Home. She is the current mascot, and is involved with numerous extracurriculars.",
+      "imageUrl": "media/HadleighScott.jpg",
+      "imageAlt": "Picture of Hadleigh Scott as Lila the Leopard",
+      "link": "LLD-Article-Page.html?id=20251107-hadleigh-scott-spotlight"
     },
     {
       "id": "s003",
-      "name": "Liam Chen",
-      "role": "Junior • STEM Scholar",
-      "blurb": "Developed a low-cost air quality sensor network adopted in science classes.",
-      "imageUrl": "https://picsum.photos/seed/spot-liam/400/400",
-      "imageAlt": "Portrait of student Liam (placeholder)",
-      "link": "#"
+      "name": "Kacyn Mcdonald",
+      "role": "Student",
+      "blurb": "Kacyn Mcdonald is a student at New Home ISD.",
+      "imageUrl": "media/KacynMcdonald.png",
+      "imageAlt": "Kacyn Mcdonald",
+      "link": "LLD-Article-Page.html?id=20251107-kacyn-mcdonald-spotlight"
     },
     {
       "id": "s004",
-      "name": "Ms. Patel",
-      "role": "Library Media Specialist",
-      "blurb": "Reimagined the library makerspace and doubled student project showcases.",
-      "imageUrl": "https://picsum.photos/seed/spot-patel/400/400",
-      "imageAlt": "Portrait of Ms. Patel (placeholder)",
-      "link": "#"
+      "name": "Mrs. Horn",
+      "role": "Secondary English Teacher • Theatre Director",
+      "blurb": "Amazing English teacher and theatre director, she always has a smile on her face.",
+      "imageUrl": "media/KatrinaHorn.jpg",
+      "imageAlt": "Portrait of Mrs. Horn",
+      "link": "LLD-Article-Page.html?id=20251106-mrs-horn-spotlight"
     }
   ],
   "last_updated": "2025-09-15T00:00:00Z",

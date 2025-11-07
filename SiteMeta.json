@@ -1,30 +1,33 @@
 {
   "meta": {
-    "date": "2025-09-26",
+    "date": "",
     "location": "New Home, TX",
     "unit": "F",
     "now": {
-      "temp": 64,
-      "condition": "Sunny"
+      "temp": null,
+      "condition": "Partly Cloudy"
     }
   },
   "weather": {
-    "high": 86,
-    "low": 63,
-    "summary": "Sunny"
+    "high": 76,
+    "low": 51,
+    "summary": "Partly Cloudy"
   },
   "events": [
     {
-      "title": "Fall Festival",
-      "date": "2025-09-24",
-      "time": "19:30"
+      "title": "1st Grade Field Trip",
+      "date": "2025-11-07"
+    },
+    {
+      "title": "Veterans Day Program",
+      "date": "2025-11-11"
     }
   ],
   "scores": [
     {
-      "sport": "Football",
+      "sport": "JV Football",
       "opponent": "Olton",
-      "result": "72-25"
+      "result": "49-6"
     }
   ]
 }
